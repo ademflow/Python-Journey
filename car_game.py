@@ -52,16 +52,35 @@ class Car:
         print("-------------------\n")
 
 
-my_car = Car("blue", "Ford", 150)
-my_car.fuel_level = 20
+my_car = Car("green", "bmw", 100)
+while True:
 
-my_car.drive(50)
+    print("\n--- Car Game ---")
+    print("1. Start the car")
+    print("2. Stop the car")
+    print("3. Drive")
+    print("4. Refuel")
+    print("5. Show status")
+    print("6. Exit the game")
 
-my_car.start()
+    choice = input("Choose an option: ")
 
-my_car.drive(50)
-
-print(f"Total mileage: {my_car.mileage}")
-print(f"Fuel left: {my_car.fuel_level}")
-
-my_car.drive(200)
+    if choice == "1":
+        my_car.start()
+    elif choice == "2":
+        my_car.stop()
+    elif choice == "3":
+        try:
+            distance = int(input("How many miles do u wanna drive?: "))
+            my_car.drive(distance)
+        except ValueError:
+            print("Please enter a valid number for miles!")
+    elif choice == "4":
+        my_car.refuel()
+    elif choice == "5":
+        my_car.show_stats()
+    elif choice == "6":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Choose between 1-6")
